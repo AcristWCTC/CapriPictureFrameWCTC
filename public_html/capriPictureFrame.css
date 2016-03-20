@@ -1,0 +1,11 @@
+.center {
+    text-align: center;
+}
+
+.button {
+border-radius: 5px; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
+border: 4px solid #000000;
+margin: 30px;
+}
