@@ -1,32 +1,23 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Upload/Add Menu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Upload Photo</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
         <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1 class="center">Capri Picture Frame</h1>
-        <form class="center">
-            <div class="button">
-                <button id="upload" type="button"  style="height:50px; width:100%; font-size:25px">Upload</button>
-            </div>
+        <form id="regform">
+            <button class="button" style="height:100px; width:100%; font-size:25px" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</button><br>
+            <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+
+            <input class="button" style="height:75px; width:100%; font-size:25px" type="text" id="firstname" name="firstname" placeholder="Enter First Name"><br>
+            <input class="button" style="height:75px; width:100%; font-size:25px" type="text" id="lastname" name="lastname" placeholder="Enter Last Name"><br>
+            <input class="button" style="height:75px; width:100%; font-size:25px" type="text" id="date" name="date" placeholder="Enter Date"><br>
+            <input class="button" style="height:100px; width:100%; font-size:25px" type="button" id="btnSubmit" value="Submit" onclick="uploadPhoto();">
         </form>
-        <form class="center">
-            <div class="button">
-                <button id="library" type="button"  style="height:50px; width:100%; font-size:25px">Select Picture From Library</button>
-            </div>
-        </form>
-        <form class="center">
-            <div class="button">
-                <button id="picture" type="button"  style="height:50px; width:100%; font-size:25px">Take Picture</button>
-            </div>
-        </form>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="js/uploadImage.js" type="text/javascript"></script>
     </body>
 </html>
+
