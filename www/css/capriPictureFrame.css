@@ -21,3 +21,44 @@ body {
 .DateLog{
     padding: 20px;
 }
+
+.dropbtn {
+    width: 100%;
+    height: auto;
+}
+
+.dropdown {
+    float: right;
+}
+
+.dropbtn {
+    width:70px;
+    height:50px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+
+    display: none;
+    position: absolute;
+    background-color: #d2a679;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+

@@ -6,10 +6,19 @@
         <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1 class="center">Capri Picture Frame</h1>
+        <header>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a style="font-weight: bold" href="addEdit.html">Photos</a>
+                    <a style="font-weight: bold" href="addEditLog.html">Logs</a>
+                </div>
+            </div>
+            <h1 class="center">Capri Picture Frame</h1>
+        </header>
         <form id="regform">
             <button class="button" style="height:100px; width:100%; font-size:25px" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</button><br>
-            <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+            <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
 
             <input class="button" style="height:75px; width:100%; font-size:25px" type="text" id="firstname" name="firstname" placeholder="Enter First Name"><br>
             <input class="button" style="height:75px; width:100%; font-size:25px" type="text" id="lastname" name="lastname" placeholder="Enter Last Name"><br>
