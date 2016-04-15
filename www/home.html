@@ -4,32 +4,27 @@
         <title>Capri Picture Frame</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> 
         <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
+        <header class="center">
             <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Menu</button>
+                <button onclick="myFunction()" class="dropbtn button">Menu</button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a style="font-weight: bold" href="addEdit.html">Photos</a>
-                    <a style="font-weight: bold" href="addEditLog.html">Logs</a>
+                    <a style="font-weight: bold" href="info.html">Info</a>
                 </div>
             </div>
             <h1>Capri Picture Frame</h1>
         </header>
-        <form class="center">
-            <div class="button">
-                <button id="picture" type="button"  style="height:50px; width:100%; font-size:25px">
-                    <a href="addEdit.html">Pictures</a>
-                </button>
-            </div>
+        <div class="centerContent">
+        <form method="get" action="addEdit.html">
+            <button id="picture" class="button" type="submit">Pictures</button>
+        </form>          
+        <form method="get" action="addEditLog.html">
+            <button id="log" class="button" type="submit">Logs</button>
         </form>
-        <form class="center">
-            <div class="button">
-                <button id="log" type="button"  style="height:50px; width:100%; font-size:25px">
-                    <a href="addEditLog.html">Logs</a>
-                </button>
-        </form>
+        </div>
+        <script src="js/uploadImage.js" type="text/javascript"></script>
     </body>
 </html>
