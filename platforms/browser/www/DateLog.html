@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="css/CapriCSS.css"  type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
+        <title>Date Log</title>
+    </head>
+    <body class="DateLog">
+                <header>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a style="font-weight: bold" href="home.html">Home</a>
+                    <a style="font-weight: bold" href="addEdit.html">Photos</a>
+                    <a style="font-weight: bold" href="addEditLog.html">Logs</a>
+                </div>
+            </div>
+            <h1 class="center">Capri Picture Frame</h1>
+        </header>
+        <form action="Submit">
+
+            <textarea rows="15" cols="35"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="button" class="btn btn-danger btn-lg"><a href="addEditLog.html">Cancel</a></button>
+        </form>
+        <script src="js/uploadImage.js" type="text/javascript"></script>
+    </body>
+</html>

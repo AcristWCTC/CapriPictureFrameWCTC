@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Capri Picture Frame</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> 
+        <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="center">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn button">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a style="font-weight: bold" href="info.html">Info</a>
+                </div>
+            </div>
+            <h1>Capri Picture Frame</h1>
+        </header>
+        <div class="centerContent">
+        <form method="get" action="addEdit.html">
+            <button id="picture" class="button" type="submit">Pictures</button>
+        </form>          
+        <form method="get" action="addEditLog.html">
+            <button id="log" class="button" type="submit">Logs</button>
+        </form>
+        </div>
+        <script src="js/uploadImage.js" type="text/javascript"></script>
+    </body>
+</html>
