@@ -47,6 +47,10 @@ function uploadPhoto() {
     options.fileKey = "file";
     options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
     options.mimeType = "image/jpeg";
+    options.chunkedMode = false;
+    options.headers = {
+          Connection: "close"
+        };
 
     options.params = {
         imageName: document.getElementById("imageName").value,
@@ -54,30 +58,31 @@ function uploadPhoto() {
         residentId: document.getElementById("residentId").value
     };
 
-    var fd = new FormData($('#smallImage'));
-console.log(fd);
-    var data = {
-        imagename: options.imageName,
-        caption: options.caption,
-        resident_id: options.residentId
-    };
-    fd.append("data", JSON.stringify(data));
-    $.ajax({
-        url: 'http://m.capripictureframe.com/api/photos',
-        type: 'POST',
-        contentType: false,
-        data: fd,
-        processData: false,
-        success: function (data) {
-            console.log(win, "Success!" + data);
-            getPhotos();
-        },
-        error: function (data) {
-            console.log(fail, data);
-        }
-    });
-//        var ft = new FileTransfer();
-//        ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos?residentId=35"), win, fail, options);
+//    var fd = new FormData($('#smallImage'));
+//console.log(fd + "--------------------------");
+//    var data = {
+//        imagename: options.imageName,
+//        caption: options.caption,
+//        resident_id: options.residentId
+//    };
+//    fd.append("data", JSON.stringify(data));
+//    $.ajax({
+//        url: 'http://m.capripictureframe.com/api/photos',
+//        type: 'POST',
+//        contentType: false,
+//        data: fd,
+//        processData: false,
+//        success: function (data) {
+//            console.log(win, "Success!" + data);
+//            getPhotos();
+//        },
+//        error: function (data) {
+//            console.log(fail, data);
+//        }
+//    });
+        var ft = new FileTransfer();
+        ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos?residentId=35"), win, fail, options);
+console.log(options + "--------------------------");
 }
 
 // Called if something bad happens.
