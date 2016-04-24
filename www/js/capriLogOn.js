@@ -1,5 +1,5 @@
 $(document).on('pageinit', '#login', function(){ 
-	if(localStorage.getItem('cpfname') && localStorage.getItem('cpfcode')){	
+	if(localStorage.getItem('cpfname') && localStorage.getItem('cpfcode') && localStorage.getItem('cpfResident')){	
 		$.mobile.changePage("home.html");
 	}
 	
@@ -26,11 +26,11 @@ $(document).on('pageinit', '#login', function(){
                         $.mobile.loading('hide'); // This will hide ajax spinner
                     },
                     success: function (result, textStatus, jqXHR) {
-						console.log(jqXHR.status);
                         if(jqXHR.status === 200 || jqXHR.status === 201) {
-                            $.mobile.changePage("home.html"); 
 							localStorage.cpfname = username;
-							localStorage.cpfcode = password;                       
+							localStorage.cpfcode = password; 
+							localStorage.cpfResident = result.resident_id;   
+							$.mobile.changePage("home.html"); 
                         } else {
                             alert('Logon unsuccessful!');
                         }
