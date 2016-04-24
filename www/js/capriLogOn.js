@@ -1,12 +1,21 @@
 $(document).on('pageinit', '#login', function(){ 
+	if(localStorage.getItem('cpfname') && localStorage.getItem('cpfcode')){	
+		$.mobile.changePage("home.html");
+	}
+	
     $(document).on('click', '#submit', function() { // catch the form's submit event
         if($('#username').val().length > 0 && $('#password').val().length > 0){
+			var username = $('#username').val();
+			var password = $('#password').val();
             // Send data to server through the Ajax call
+			var data = JSON.stringify({
+				"username":username,
+				"password":password
+			});
             // action is functionality we want to call and outputJSON is our data
-                $.ajax({url: 'check.php',
-                    data: {action : 'login', formData : $('#check-user').serialize()},
-                    type: 'post',                  
-                    async: 'true',
+                $.ajax({url: 'http://m.capripictureframe.com/api/login',
+                    data: data,
+                    type: 'post',  
                     dataType: 'json',
                     beforeSend: function() {
                         // This callback function will trigger before data is sent
@@ -16,17 +25,19 @@ $(document).on('pageinit', '#login', function(){
                         // This callback function will trigger on data sent/received complete
                         $.mobile.loading('hide'); // This will hide ajax spinner
                     },
-                    success: function (result) {
-                        if(result.status) {
-                            user.name =  result.massage;
-                            $.mobile.changePage("#second");                        
+                    success: function (result, textStatus, jqXHR) {
+						console.log(jqXHR.status);
+                        if(jqXHR.status === 200 || jqXHR.status === 201) {
+                            $.mobile.changePage("home.html"); 
+							localStorage.cpfname = username;
+							localStorage.cpfcode = password;                       
                         } else {
                             alert('Logon unsuccessful!');
                         }
                     },
                     error: function (request,error) {
                         // This callback function will trigger on unsuccessful action               
-                        alert('Network error has occurred please try again!');
+                        alert('Logon unsuccessful!');
                     }
                 });                  
         } else {
