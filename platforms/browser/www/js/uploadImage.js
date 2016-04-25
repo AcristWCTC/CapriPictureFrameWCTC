@@ -16,7 +16,8 @@ function onDeviceReady() {
 // Called when a photo is successfully retrieved
 //
 function onPhotoURISuccess(imageURI) {
-
+	pictureSource = imageURI;
+	console.log(imageURI);
     // Show the selected image
     var smallImage = document.getElementById('smallImage');
     smallImage.style.display = 'block';
@@ -33,57 +34,61 @@ function getPhoto(source) {
         sourceType: source});
 }
 
-function uploadPhoto() {
-
-    //selected photo URI is in the src attribute (we set this on getPhoto)
-    var imageURI = document.getElementById('smallImage').getAttribute("src");
-    if (!imageURI) {
-        alert('Please select an image first.');
-        return;
-    }
-
-    //set upload options
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-    options.mimeType = "image/jpeg";
-    options.chunkedMode = false;
-    options.headers = {
-          Connection: "close"
-        };
-
-    options.params = {
-        imageName: document.getElementById("imageName").value,
-        caption: document.getElementById("caption").value,
-        residentId: document.getElementById("residentId").value
-    };
-
-//    var fd = new FormData($('#smallImage'));
-//console.log(fd + "--------------------------");
-//    var data = {
-//        imagename: options.imageName,
-//        caption: options.caption,
-//        resident_id: options.residentId
+//function uploadPhoto() {
+//	console.log("Uploading");
+//    //selected photo URI is in the src attribute (we set this on getPhoto)
+//    var imageURI = document.getElementById('smallImage').getAttribute("src");
+//    if (!imageURI) {
+//        alert('Please select an image first.');
+//        return;
+//    }
+//
+//    //set upload options
+//    var options = new FileUploadOptions();
+//    options.fileKey = "file";
+//    options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+//    options.mimeType = "image/jpeg";
+//    options.chunkedMode = false;
+//    options.headers = {
+//          Connection: "close"
+//        };
+//
+//    options.params = {
+//        caption: document.getElementById("caption").value,
+//        residentId: "35"
 //    };
-//    fd.append("data", JSON.stringify(data));
-//    $.ajax({
-//        url: 'http://m.capripictureframe.com/api/photos',
-//        type: 'POST',
-//        contentType: false,
-//        data: fd,
-//        processData: false,
-//        success: function (data) {
-//            console.log(win, "Success!" + data);
-//            getPhotos();
-//        },
-//        error: function (data) {
-//            console.log(fail, data);
-//        }
-//    });
-        var ft = new FileTransfer();
-        ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos?residentId=35"), win, fail, options);
-console.log(options + "--------------------------");
-}
+//	
+//	var ft = new FileTransfer();
+//    ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos"), win, fail, options);
+//	console.log(options + "--------------------------");
+//}
+
+$("#regform").submit(function(e){
+	console.log("Hit");
+	e.preventDefault();
+    var fd = new FormData($(this)[0]);
+	console.log(fd + "--------------------------");
+    var data = {
+			caption: $('#caption').val(),
+			resident_id: "35",
+		};
+    fd.append("data", JSON.stringify(data));
+    $.ajax({
+        url: 'http://m.capripictureframe.com/api/photos',
+        type: 'POST',
+        contentType: false,
+        data: fd,
+        processData: false,
+        success: function (data) {
+            console.log("Success!" + data);
+            //getPhotos();
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+        
+});
 
 // Called if something bad happens.
 //
@@ -101,7 +106,9 @@ function win(r) {
 function fail(error) {
     alert("An error has occurred: Code = " + error.code);
     console.log("upload error source " + error.source);
+	console.log("HTTP ERROR: " + error.http_status);
     console.log("upload error target " + error.target);
+	console.log("Body: " + error.body);
 }
 
 /* When the user clicks on the button, 
