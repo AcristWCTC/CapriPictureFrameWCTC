@@ -21,17 +21,18 @@
         </header>
         <div class="centerContent">
             <form id="regform" enctype="multipart/form-data">
-                <!--<button class="button" type="button" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</button><br>-->
+                <button class="button" type="button" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</button><br>
                 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
-                <input id="file_attachment" class="button" name="image" type="file">
+                <!--<input id="file_attachment" class="button" name="image" type="file">-->
 
                 <input class="button" type="text" id="caption" name="caption" placeholder="Caption"><br>
-               <!-- <button class="button" type="button" id="btnSubmit" value="Submit" onclick="uploadPhoto();">Submit</button>-->
-                <button class="button" type="submit" id="btnSubmit" value="Submit">Submit</button>
+               <button class="button" type="button" id="btnSubmit" value="Submit" onclick="uploadPhoto()">Submit</button>
+                <!--<button class="button" type="submit" id="btnSubmit" value="Submit">Submit</button>-->
             </form>
         </div>
                 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/uploadImage.js" type="text/javascript"></script>
+        <script src="js/menu.js" type="text/javascript"></script>
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     </body>
 </html>

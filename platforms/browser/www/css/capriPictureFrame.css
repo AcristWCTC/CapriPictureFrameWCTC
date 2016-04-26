@@ -85,3 +85,24 @@ header {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+.imageBox{
+	width: 150px;
+	float: left;
+	display: block;
+	margin: 10px;
+}
+
+.imageBox img{
+	width: 100%;
+}
+
+#photos{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h5{
+	text-align: center;
+	font-size: 100%;
+}
