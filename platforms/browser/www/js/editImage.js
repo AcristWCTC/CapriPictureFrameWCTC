@@ -53,7 +53,7 @@
 	$('#photos').on('click', '.imageBox', function(){
 		console.log(this.id);
 		photoId = this.id;
-		$('#popupDialog').popup( "open" );	
+		$('#popupDialog').popup("open");	
 	});
 	
 	$('body').on('click', '#delete', function(){

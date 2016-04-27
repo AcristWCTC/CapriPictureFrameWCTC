@@ -4,6 +4,7 @@
         <title>Add/Edit Menu</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
         <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -18,20 +19,15 @@
             </div>
             <h1 class="center">Capri Picture Frame</h1>
         </header>
-        <form class="center">
-            <div class="button">
-                <button id="add" type="button"  style="height:50px; width:100%; font-size:25px">
-                    <a href="DateLog.html">Add Log</a>
-                </button>
-            </div>
-        </form>
-        <form class="center">
-            <div class="button">
-                <button id="edit" type="button"  style="height:50px; width:100%; font-size:25px">
-                    <a href="Calender.html">Edit Log</a>
-                </button>
-            </div>
-        </form>
-        <script src="js/uploadImage.js" type="text/javascript"></script>
+        <div class="center">
+            <form method="get" action="DateLog.html">
+                <button id="picture" class="button" type="submit">Add Log</button>
+            </form>          
+            <form method="get" action="viewLog.html">
+                <button id="log" class="button" type="submit">View Logs</button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/menu.js" type="text/javascript"></script>
     </body>
 </html>

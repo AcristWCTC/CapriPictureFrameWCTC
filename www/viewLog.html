@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <link href="js/DateBox/css/jtsage-datebox.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="css/font-awesome.min.css"> 
+        <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
+                <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+                <script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script> 
+ 		<script src="js/jquery.mobile-1.4.5.min.js" tyle="text/javascript"></script>
+        <script src="js/DateBox/js/jtsage-datebox.js" type="text/javascript"></script>
+       	<script src="js/viewLog.js" type="text/javascript"></script>
+        <script src="js/menu.js" type="text/javascript"></script>
+        <title>View Log</title>
+    </head>
+    <body id="DateLog" style="background-color:#eee">
+        <header class="center">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn button">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a style="font-weight: bold" href="home.html">Home</a>
+                    <a style="font-weight: bold" href="addEdit.html">Photos</a>
+                    <a style="font-weight: bold" href="addEditLog.html">Logs</a>
+                </div>
+            </div>
+            <h1 class="center">Capri Picture Frame</h1>
+        </header>
+        <div class="content">
+        	<div class="title">
+            	<h2 class="date">Logs</h2>
+            </div>
+        	<div class="calNav">
+                <a href="#" class="showCalendar"><i class="fa fa-calendar fa-2x"></i></a>
+            </div>
+            
+            <div id="logs">
+            </div>
+            <div id="view-calendar" class="calendar container">
+            	<button type="button" id="showAll" name="showAll">Show All</button>
+                <input type="text" data-role="datebox" data-options='{"mode":"calbox", "useInline":true}'>  
+            </div>
+        </div>
+
+    </body>
+</html>
