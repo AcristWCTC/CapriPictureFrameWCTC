@@ -135,11 +135,39 @@ h5{
 	background-color: #fff;
 }
 
-.logBx h4{
+.logBx .heading{
 	width: 100%;
 	border-bottom: thin solid #ccc;
+	text-align:left;
+	height: 2em;
 }
 
+.logBx h4{
+	float:left;
+}
+
+.logBx .floatRight{
+	text-align:right;
+	float: right;
+}
+
+.logBx .floatRight a{
+	padding-left: .7em;
+}
+.fa-larger{
+	font-size: 2em;
+}
+
+.logBx p{
+	clear:both;
+}
+
+.editBx{
+	display:none;
+}
+.logBx textarea{
+	width: 100%;
+}
 .calendar{
 	display:none;
 	margin-left: auto;
