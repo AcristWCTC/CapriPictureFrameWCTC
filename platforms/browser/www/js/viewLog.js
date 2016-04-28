@@ -5,8 +5,10 @@
 		var baseURL = "http://m.capripictureframe.com/api/logs";
 		var formatDate;
 		var logId;
-		getLogs();
 		
+		
+            getLogs();
+       
 		function getLogs(){
 			$.ajax({
 				type: 'GET',
@@ -101,6 +103,43 @@
 				}
 			});
 		}
+		
+		//Add Logs
+		$('body').on('click', '#add', function(){
+			addLog();
+			$('#popupAdd').popup("close");
+		});
+		
+		function uploadLog() {
+			$.ajax({
+				type: 'POST',
+				url: 'http://m.capripictureframe.com/api/logs',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: formToJSON(),
+				success: function (data) {
+					console.log(data);
+				},
+				error: function (jqXHR, textStatus, error) {
+					if (jqXHR.status === 201 || jqXHR.status === 200) {
+						console.log("Success");
+					} else {
+						console.log("Error: " + error);
+					}
+				}
+			});
+		}
+
+		function formToJSON() {
+			var today = new Date();
+			var textBox = $('#log').val();
+			return JSON.stringify({
+				"resident_id": localStorage.getItem("cpfResident"),
+				"log_date": today,
+				"log_text": textBox
+			});
+		}
+				
 		//Calendar
 		 $('.showCalendar').click(function(){
 			 $('#logs').hide();

@@ -45,9 +45,9 @@
 		$('#photos div').remove();
 		photos.forEach(function(photo){
 			var div = '<div class="imageBox" id="' + photo.photo_id + '"><img src="http://capripictureframe.com/images/capri/' + room.building.directory_name + '/' + room.room_number + '/' + photo.image_name + '"></div>';
-			console.log(div);
 			$('#photos').append(div);
 		});
+		console.log("display..");
 	}
 	
 	$('#photos').on('click', '.imageBox', function(){
