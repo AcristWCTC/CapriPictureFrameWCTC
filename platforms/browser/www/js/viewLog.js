@@ -105,8 +105,14 @@
 		}
 		
 		//Add Logs
-		$('body').on('click', '#add', function(){
-			addLog();
+		
+		$('#add').click(function(){
+			$('#popupAdd').popup("open");
+		});
+		
+		$('body').on('click', '#addLog', function(){
+			uploadLog();
+			$('#logText').val("");
 			$('#popupAdd').popup("close");
 		});
 		
@@ -123,6 +129,7 @@
 				error: function (jqXHR, textStatus, error) {
 					if (jqXHR.status === 201 || jqXHR.status === 200) {
 						console.log("Success");
+						getLogs();
 					} else {
 						console.log("Error: " + error);
 					}
@@ -132,7 +139,7 @@
 
 		function formToJSON() {
 			var today = new Date();
-			var textBox = $('#log').val();
+			var textBox = $('#logText').val();
 			return JSON.stringify({
 				"resident_id": localStorage.getItem("cpfResident"),
 				"log_date": today,
