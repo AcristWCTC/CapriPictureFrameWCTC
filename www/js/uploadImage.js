@@ -70,7 +70,7 @@ $("#regform").submit(function(e){
 	console.log(fd + "--------------------------");
     var data = {
 			caption: $('#caption').val(),
-			resident_id: "35",
+			resident_id: "35"
 		};
     fd.append("data", JSON.stringify(data));
     $.ajax({
