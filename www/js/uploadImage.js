@@ -43,63 +43,63 @@ function getPhoto(source) {
         sourceType: source});
 }
 
-function uploadPhoto() {
-	console.log("Uploading");
-    //selected photo URI is in the src attribute (we set this on getPhoto)
-    var imageURI = document.getElementById('smallImage').getAttribute("src");
-    if (!imageURI) {
-        alert('Please select an image first.');
-        return;
-    }
-
-    //set upload options
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-    options.mimeType = "image/jpeg";
-    options.chunkedMode = false;
-    options.headers = {
-          Connection: "close"
-        };
-
-    options.params = {
-        caption: document.getElementById("caption").value,
-        residentId: "35"
-    };
-	
-	var ft = new FileTransfer();
-    ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos"), win, fail, options);
-	console.log(options + "--------------------------");
-}
-
-//$("#regform").submit(function(e){
-//	console.log("Hit");
-//	e.preventDefault();
-//    var fd = new FormData($(this)[0]);
+//function uploadPhoto() {
+//	console.log("Uploading");
+//    //selected photo URI is in the src attribute (we set this on getPhoto)
+//    var imageURI = document.getElementById('smallImage').getAttribute("src");
+//    if (!imageURI) {
+//        alert('Please select an image first.');
+//        return;
+//    }
+//
+//    //set upload options
+//    var options = new FileUploadOptions();
+//    options.fileKey = "file";
+//    options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+//    options.mimeType = "image/jpeg";
+//    options.chunkedMode = false;
+//    options.headers = {
+//          Connection: "close"
+//        };
+//
+//    options.params = {
+//        caption: document.getElementById("caption").value,
+//        residentId: "35"
+//    };
 //	
-//	//fd.append("file", pictureSource);
-//	console.log(fd + "--------------------------");
-//    var data = {
-//			caption: $('#caption').val(),
-//			resident_id: "35",
-//		};
-//    fd.append("data", JSON.stringify(data));
-//    $.ajax({
-//        url: 'http://m.capripictureframe.com/api/photos',
-//        type: 'POST',
-//        contentType: false,
-//        data: fd,
-//        processData: false,
-//        success: function (data) {
-//            console.log("Success!" + data);
-//            //getPhotos();
-//        },
-//        error: function (data) {
-//            console.log(data);
-//        }
-//    });
-//        
-//});
+//	var ft = new FileTransfer();
+//    ft.upload(imageURI, encodeURI("http://m.capripictureframe.com/api/photos"), win, fail, options);
+//	console.log(options + "--------------------------");
+//}
+
+$("#regform").submit(function(e){
+	console.log("Hit");
+	e.preventDefault();
+    var fd = new FormData($(this)[0]);
+	
+	//fd.append("file", pictureSource);
+	console.log(fd + "--------------------------");
+    var data = {
+			caption: $('#caption').val(),
+			resident_id: "35",
+		};
+    fd.append("data", JSON.stringify(data));
+    $.ajax({
+        url: 'http://m.capripictureframe.com/api/photos',
+        type: 'POST',
+        contentType: false,
+        data: fd,
+        processData: false,
+        success: function (data) {
+            console.log("Success!" + data);
+            //getPhotos();
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+        
+});
 
 // Called if something bad happens.
 //

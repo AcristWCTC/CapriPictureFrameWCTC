@@ -3,8 +3,8 @@
     <head>
         <title>Upload Photo</title>
         <!--<link href="css/index.css" rel="stylesheet" type="text/css"/>-->
-        
-        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src: 'self' 'unsafe-inline' 'unsafe-eval'">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
         <link href="css/capriPictureFrame.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -23,11 +23,11 @@
             <form id="regform" enctype="multipart/form-data">
                 <button class="button" type="button" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</button><br>
                 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
-                <!--<input id="file_attachment" class="button" name="image" type="file">-->
+                <input id="file_attachment" class="button" name="image" type="file">
 
                 <input class="button" type="text" id="caption" name="caption" placeholder="Caption"><br>
                <button class="button" type="button" id="btnSubmit" value="Submit" onclick="uploadPhoto()">Submit</button>
-                <!--<button class="button" type="submit" id="btnSubmit" value="Submit">Submit</button>-->
+                <button class="button" type="submit" id="btnSubmit" value="Submit">Submit 2</button>
             </form>
         </div>
                 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
