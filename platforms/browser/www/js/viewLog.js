@@ -3,12 +3,11 @@
 (function($, window, document) {
     $(function() {
 		var baseURL = "http://m.capripictureframe.com/api/logs";
-		var formatDate;
-		var logId;
-		
 		
             getLogs();
-       
+       var formatDate;
+		var logId;
+		
 		function getLogs(){
 			$.ajax({
 				type: 'GET',
